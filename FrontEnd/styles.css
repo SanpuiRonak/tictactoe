@@ -1,0 +1,27 @@
+body{
+    display: grid;
+    grid-template-rows:25vh auto;
+    grid-template-columns: 100vw;
+    padding: 0;
+    margin: 0;
+    
+}
+
+tr,td{
+    --cell-size:75px;
+    height: var(--cell-size);
+    width: var(--cell-size);
+    background-color: aqua;
+    border: black 1px solid;
+    
+    text-align: center;
+    
+}
+
+table{
+    background-color:gold;
+    border-collapse: collapse;
+    border: rgba(0,0,0,100);
+    justify-self: center;
+    grid-row-start:2 ;
+}
