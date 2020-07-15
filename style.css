@@ -1,0 +1,19 @@
+body {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-rows: 100vh;
+}
+.grid {
+  background-color: greenyellow;
+  height: 10rem;
+  width: 10rem;
+  position: relative;
+  float: left;
+}
+#frame {
+  background: red;
+  --size: 30rem;
+  height: var(--size);
+  width: var(--size);
+}
