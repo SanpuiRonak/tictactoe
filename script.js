@@ -13,5 +13,5 @@ function main() {
 function display(element) {
   const grid = document.getElementById(element.target.id);
   console.log(grid.id);
-  grid.innerHTML = "clicked";
+  grid.style.backgroundImage = "url(./resources/circle.png)";
 }

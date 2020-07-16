@@ -5,15 +5,23 @@ body {
   grid-template-rows: 100vh;
 }
 .grid {
-  background-color: greenyellow;
   height: 10rem;
   width: 10rem;
   position: relative;
   float: left;
+
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 #frame {
-  background: red;
+  /* background: red; */
   --size: 30rem;
   height: var(--size);
   width: var(--size);
+
+  background-image: url(./resources/grid.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
