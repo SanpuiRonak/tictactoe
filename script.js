@@ -38,7 +38,7 @@ function display(element) {
 }
 
 function check() {
-  Promise.all([checkRow(), checkCol()]);
+  Promise.all([checkRow(), checkCol(), checkD()]);
   console.log("async ok");
 }
 
@@ -66,6 +66,25 @@ function checkCol() {
       ) {
         console.log(`Victory col ${i + 1}`);
       }
+    }
+  });
+}
+
+function checkD() {
+  return new Promise(() => {
+    // console.log("check");
+    if (
+      (girdState[0] === 0 || girdState[0] === 1) &&
+      girdState[4] === girdState[0] &&
+      girdState[8] === girdState[0]
+    ) {
+      console.log("Victory Diagonal 1");
+    } else if (
+      (girdState[2] === 0 || girdState[2] === 1) &&
+      girdState[4] === girdState[2] &&
+      girdState[6] === girdState[2]
+    ) {
+      console.log("Victory Diagonal 2");
     }
   });
 }
