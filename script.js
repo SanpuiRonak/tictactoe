@@ -38,16 +38,34 @@ function display(element) {
 }
 
 function check() {
-  const ar = girdState;
-  console.log("checking");
+  Promise.all([checkRow(), checkCol()]);
+  console.log("async ok");
+}
 
-  for (i = 0; i <= 6; i += 3) {
-    if (
-      (ar[i] === 0 || ar[i] === 1) &&
-      ar[i] === ar[i + 1] &&
-      ar[i] === ar[i + 2]
-    ) {
-      console.log(`Victory row ${i / 3 + 1}`);
+function checkRow() {
+  return new Promise(() => {
+    for (i = 0; i <= 6; i += 3) {
+      if (
+        (girdState[i] === 0 || girdState[i] === 1) &&
+        girdState[i] === girdState[i + 1] &&
+        girdState[i] === girdState[i + 2]
+      ) {
+        console.log(`Victory row ${i / 3 + 1}`);
+      }
     }
-  }
+  });
+}
+
+function checkCol() {
+  return new Promise(() => {
+    for (i = 0; i <= 2; i++) {
+      if (
+        (girdState[i] === 0 || girdState[i] === 1) &&
+        girdState[i + 3] === girdState[i] &&
+        girdState[i + 6] === girdState[i]
+      ) {
+        console.log(`Victory col ${i + 1}`);
+      }
+    }
+  });
 }
