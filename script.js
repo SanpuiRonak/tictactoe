@@ -9,7 +9,6 @@ let usedGrid = new Set();
 
 function main() {
   const table = document.getElementsByClassName("grid");
-
   for (grid of table) {
     grid.addEventListener("click", (element) => display(element).then(check()));
   }
@@ -51,6 +50,7 @@ function checkRow() {
         girdState[i] === girdState[i + 2]
       ) {
         console.log(`Victory row ${i / 3 + 1}`);
+        drawSlash("H", i / 3 + 1);
       }
     }
   });
@@ -64,6 +64,7 @@ function checkCol() {
         girdState[i + 3] === girdState[i] &&
         girdState[i + 6] === girdState[i]
       ) {
+        drawSlash("V", i + 1);
         console.log(`Victory col ${i + 1}`);
       }
     }
@@ -72,7 +73,6 @@ function checkCol() {
 
 function checkD() {
   return new Promise(() => {
-    // console.log("check");
     if (
       (girdState[0] === 0 || girdState[0] === 1) &&
       girdState[4] === girdState[0] &&
@@ -87,4 +87,27 @@ function checkD() {
       console.log("Victory Diagonal 2");
     }
   });
+}
+
+function drawSlash(oreintation, row) {
+  const table = document.getElementById("frame");
+  let slash = document.createElement("img");
+  slash.src = "./resources/slash.png";
+
+  switch (oreintation) {
+    case "H":
+      slash.className = "H";
+      slash.style.top = `${5 + 10 * (row - 1) - 0.5}rem`;
+      table.appendChild(slash);
+      break;
+
+    case "V":
+      slash.className = "V";
+      slash.style.left = `${5 + 10 * (row - 1)}rem`;
+      table.appendChild(slash);
+      break;
+
+    default:
+      break;
+  }
 }

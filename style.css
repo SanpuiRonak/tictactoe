@@ -4,7 +4,7 @@ body {
   justify-items: center;
   grid-template-rows: 100vh;
 }
-.grid {
+#frame .grid {
   height: 10rem;
   width: 10rem;
   position: relative;
@@ -15,7 +15,7 @@ body {
   background-position: center;
 }
 #frame {
-  /* background: red; */
+  /* background: greenyellow; */
   --size: 30rem;
   height: var(--size);
   width: var(--size);
@@ -24,4 +24,25 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
+  position: relative;
+}
+
+#frame img.H {
+  max-width: 100%;
+  position: absolute;
+  left: 0;
+
+  padding: 0;
+}
+
+#frame img.V {
+  max-width: 100%;
+  position: absolute;
+
+  top: -0.5525rem;
+  /* left: 0; */
+  transform-origin: left;
+  transform: rotateZ(90deg);
+  padding: 0;
 }
