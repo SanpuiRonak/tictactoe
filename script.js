@@ -78,18 +78,20 @@ function checkD() {
       girdState[4] === girdState[0] &&
       girdState[8] === girdState[0]
     ) {
+      drawSlash("D", 1);
       console.log("Victory Diagonal 1");
     } else if (
       (girdState[2] === 0 || girdState[2] === 1) &&
       girdState[4] === girdState[2] &&
       girdState[6] === girdState[2]
     ) {
+      drawSlash("D", 2);
       console.log("Victory Diagonal 2");
     }
   });
 }
 
-function drawSlash(oreintation, row) {
+function drawSlash(oreintation, offset) {
   const table = document.getElementById("frame");
   let slash = document.createElement("img");
   slash.src = "./resources/slash.png";
@@ -97,13 +99,18 @@ function drawSlash(oreintation, row) {
   switch (oreintation) {
     case "H":
       slash.className = "H";
-      slash.style.top = `${5 + 10 * (row - 1) - 0.5}rem`;
+      slash.style.top = `${5 + 10 * (offset - 1) - 0.5}rem`;
       table.appendChild(slash);
       break;
 
     case "V":
       slash.className = "V";
-      slash.style.left = `${5 + 10 * (row - 1)}rem`;
+      slash.style.left = `${5 + 10 * (offset - 1)}rem`;
+      table.appendChild(slash);
+      break;
+
+    case "D":
+      slash.className = `D${offset}`;
       table.appendChild(slash);
       break;
 

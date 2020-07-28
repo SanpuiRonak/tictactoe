@@ -31,18 +31,27 @@ body {
 #frame img.H {
   max-width: 100%;
   position: absolute;
-  left: 0;
-
   padding: 0;
+
+  left: 0;
 }
 
 #frame img.V {
   max-width: 100%;
   position: absolute;
+  padding: 0;
 
   top: -0.5525rem;
-  /* left: 0; */
   transform-origin: left;
   transform: rotateZ(90deg);
+}
+#frame img.D1 {
+  max-width: 100%;
+  position: absolute;
   padding: 0;
+  --offset: 5rem;
+  left: var(--offset);
+  top: var(--offset);
+  transform-origin: left;
+  transform: rotateZ(45deg);
 }
